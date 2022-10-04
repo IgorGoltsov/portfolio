@@ -267,9 +267,11 @@ LIMIT 10;
 - `dttm` — дата и время получения заказом этого статуса.
 
 Чтобы ваш скрипт по расчёту витрины продолжил работать, вам необходимо внести изменения в то, как формируется представление `analysis.Orders`: вернуть в него поле `status`. Значение в этом поле должно соответствовать последнему по времени статусу из таблицы `production.OrderStatusLog`.
+```jsx
 CREATE OR REPLACE VIEW analysis.orders AS
 SELECT ord.order_id, order_ts, user_id, payment, new_status FROM production.orders ord
 INNER JOIN (
 SELECT DISTINCT order_id, first_value(status_id) OVER (PARTITION BY order_id ORDER BY dttm DESC) AS new_status
 FROM production.orderstatuslog o)
 AS query_in  ON query_in.order_id = ord.order_id
+```

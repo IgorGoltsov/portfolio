@@ -76,27 +76,27 @@
 
 ```jsx
 CREATE VIEW analysis.users AS
-SELECT * FROM production.users;
+  SELECT * FROM production.users;
 ```
 
 ```jsx
 CREATE VIEW analysis.products AS
-SELECT * FROM production.products;
+  SELECT * FROM production.products;
 ```
 
 ```jsx
 CREATE VIEW analysis.orderstatuslog AS
-SELECT * FROM production.orderstatuslog;
+  SELECT * FROM production.orderstatuslog;
 ```
 
 ```jsx
 CREATE VIEW analysis.orders AS
-SELECT * FROM production.orders;
+  SELECT * FROM production.orders;
 ```
 
 ```jsx
 CREATE VIEW analysis.orderitems AS
-SELECT * FROM production.orderitems;
+  SELECT * FROM production.orderitems;
 ```
 
 ### 1.4.2. Написание DDL-запроса для создания витрины.
@@ -121,16 +121,16 @@ CREATE TABLE IF NOT EXISTS analysis.dm_rfm_segments (
 
 ```jsx
 CREATE TABLE analysis.tmp_rfm_recency (
-user_id INT NOT NULL PRIMARY KEY,
-recency INT NOT NULL CHECK(recency >= 1 AND recency <= 5)
+  user_id INT NOT NULL PRIMARY KEY,
+  recency INT NOT NULL CHECK(recency >= 1 AND recency <= 5)
 );
 CREATE TABLE analysis.tmp_rfm_frequency (
-user_id INT NOT NULL PRIMARY KEY,
-frequency INT NOT NULL CHECK(frequency >= 1 AND frequency <= 5)
+  user_id INT NOT NULL PRIMARY KEY,
+  frequency INT NOT NULL CHECK(frequency >= 1 AND frequency <= 5)
 );
 CREATE TABLE analysis.tmp_rfm_monetary_value (
-user_id INT NOT NULL PRIMARY KEY,
-monetary_value INT NOT NULL CHECK(monetary_value >= 1 AND monetary_value <= 5)
+  user_id INT NOT NULL PRIMARY KEY,
+  monetary_value INT NOT NULL CHECK(monetary_value >= 1 AND monetary_value <= 5)
 );
 ```
 

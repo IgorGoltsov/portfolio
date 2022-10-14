@@ -101,22 +101,23 @@ SELECT * FROM production.orderitems;
 
 ### 1.4.2. Написание DDL-запроса для создания витрины.
 
-Далее вам необходимо создать витрину. Напишите CREATE TABLE запрос и выполните его на предоставленной базе данных в схеме analysis.
+> Далее вам необходимо создать витрину. Напишите CREATE TABLE запрос и выполните его на предоставленной базе данных в схеме analysis.
 
 ```jsx
 CREATE TABLE IF NOT EXISTS analysis.dm_rfm_segments (
-user_id INT NOT NULL PRIMARY KEY,
-recency INT NOT NULL CHECK(recency > 0 AND recency <= 5),
-frequency INT NOT NULL CHECK(frequency > 0 AND frequency <= 5),
-money_value INT NOT NULL CHECK(money_value > 0 AND money_value <= 5))
+  user_id INT NOT NULL PRIMARY KEY,
+  recency INT NOT NULL CHECK(recency > 0 AND recency <= 5),
+  frequency INT NOT NULL CHECK(frequency > 0 AND frequency <= 5),
+  money_value INT NOT NULL CHECK(money_value > 0 AND money_value <= 5)
+)
 ```
 
 ### 1.4.3. Написание SQL запросов для заполнения витрины
 
-Напишите SQL-запрос для заполнения витрины
-Реализуйте расчёт витрины на языке SQL и заполните таблицу, созданную в предыдущем пункте.
-
-Рассчитайте витрину поэтапно. Сначала заведите таблицы под каждый показатель:
+> Напишите SQL-запрос для заполнения витрины
+> Реализуйте расчёт витрины на языке SQL и заполните таблицу, созданную в предыдущем пункте.
+>
+>Рассчитайте витрину поэтапно. Сначала заведите таблицы под каждый показатель:
 
 ```jsx
 CREATE TABLE analysis.tmp_rfm_recency (
@@ -136,16 +137,18 @@ monetary_value INT NOT NULL CHECK(monetary_value >= 1 AND monetary_value <= 5)
 Запрос для заполнения таблицы `analysis.tmp_rfm_recency`:
 
 ```jsx
-WITH closed AS --Просчёт кол-ва пользователей с успешными заказами
-(SELECT user_id, max(order_ts) as last_time
-FROM analysis.orders o
-WHERE status = 4
-GROUP BY user_id),
-all_users as --Просчёт уникального кол-ва пользователей
-(select distinct user_id from analysis.orders)
-INSERT INTO analysis.tmp_rfm_recency
+WITH closed AS (
+	SELECT user_id, max(order_ts) as last_time
+	FROM analysis.orders o
+	WHERE status = 4
+	GROUP BY user_id),
+all_users as (
+	SELECT DISTINCT user_id 
+	FROM orders
+	)
+INSERT INTO tmp_rfm_recency
 SELECT a.user_id,  
-ntile(5) OVER (ORDER BY coalesce(last_time, '2010-01-01 00:00:00.000' ) ASC) AS recency --Добавление даты для определения статуса для пользователей без успешных заказов
+	   ntile(5) OVER (ORDER BY coalesce(last_time, '2010-01-01 00:00:00.000' ) ASC) AS receancy 
 FROM all_users a
 	LEFT JOIN closed c ON c.user_id = a.user_id 
 GROUP BY a.user_id, c.last_time;
@@ -154,40 +157,47 @@ GROUP BY a.user_id, c.last_time;
 Запрос для заполнения таблицы `analysis.tmp_rfm_frequency`
 
 ```jsx
-WITH closed AS --Просчёт кол-ва пользователей с успешными заказами
-(SELECT user_id, count(*) as qty
-FROM analysis.orders o
-WHERE status = 4
-GROUP BY user_id),
-all_users as --Просчёт уникального кол-ва пользователей
-(select distinct user_id from analysis.orders)
+WITH closed AS (
+	SELECT user_id, 
+		   COUNT(*) AS qty
+	FROM analysis.orders o
+	WHERE status = 4
+	GROUP BY user_id
+	),
+all_users AS (
+	SELECT DISTINCT user_id 
+	FROM orders
+	)	
 INSERT INTO analysis.tmp_rfm_frequency
-SELECT a.user_id,  
-ntile(5) OVER (ORDER BY coalesce(qty, 0) ASC) AS frequency
+SELECT a.user_id, 
+	   ntile(5) OVER (ORDER BY coalesce(qty, 0) ASC) AS frequency
 FROM all_users a
-	LEFT JOIN closed c ON c.user_id = a.user_id 
+	 LEFT JOIN closed c ON c.user_id = a.user_id 
 GROUP BY a.user_id, qty;
 ```
 
 Запрос для заполнения таблицы `analysis.tmp_rfm_monetary_value`
 
 ```jsx
-WITH closed AS --Просчёт кол-ва пользователей с успешными заказами
-(SELECT user_id, SUM(payment) as total_payment
-FROM analysis.orders o
-WHERE status = 4
-GROUP BY user_id),
-all_users as --Просчёт уникального кол-ва пользователей
-(select distinct user_id from analysis.orders)
+WITH closed AS ( 
+	SELECT user_id, 
+		   SUM(payment) as total_payment
+	FROM analysis.orders o
+	WHERE status = 4
+	GROUP BY user_id
+	),
+all_users as (
+	SELECT DISTINCT user_id FROM orders
+	)
 INSERT INTO analysis.tmp_rfm_monetary_value
 SELECT a.user_id,  
-ntile(5) OVER (ORDER BY coalesce(total_payment, 0 ) ASC) AS moneytary_value
+	   ntile(5) OVER (ORDER BY coalesce(total_payment, 0 ) ASC) AS moneytary_value
 FROM all_users a
-	left join closed c ON c.user_id = a.user_id 
+	 LEFT JOIN closed c ON c.user_id = a.user_id 
 GROUP BY a.user_id, c.total_payment;
 ```
 
-Запрос, который на основе данных, подготовленных в таблицах `analysis.tmp_rfm_recency`
+> Запрос, который на основе данных, подготовленных в таблицах `analysis.tmp_rfm_recency`
 , `analysis.tmp_rfm_frequency` и `analysis.tmp_rfm_monetary_value`заполнит витрину `analysis.dm_rfm_segments:`
 
 ```jsx
@@ -222,9 +232,9 @@ LIMIT 10;
 
 ## **2. Доработка представлений**
 
-Через некоторое время вам пишет менеджер и сообщает, что витрина больше не собирается. Вы начинаете разбираться, в чём причина, и выясняете, что бэкенд-разработчики приложения обновили структуру данных в схеме `production`: в таблице `Orders` больше нет поля статуса. А это поле необходимо, потому что для анализа нужно выбрать только успешно выполненные заказы со статусом `closed`.
-
-Вместо поля с одним статусом разработчики добавили таблицу для журналирования всех изменений статусов заказов — `production.OrderStatusLog`.
+> Через некоторое время вам пишет менеджер и сообщает, что витрина больше не собирается. Вы начинаете разбираться, в чём причина, и выясняете, что бэкенд-разработчики  приложения обновили структуру данных в схеме `production`: в таблице `Orders` больше нет поля статуса. А это поле необходимо, потому что для анализа нужно выбрать только успешно выполненные заказы со статусом `closed`.
+>
+>Вместо поля с одним статусом разработчики добавили таблицу для журналирования всех изменений статусов заказов — `production.OrderStatusLog`.
 
 Структура таблицы `production.OrderStatusLog`:
 
@@ -233,12 +243,21 @@ LIMIT 10;
 - `status_id` — идентификатор статуса, внешний ключ на таблицу статусов заказов `production.OrderStatuses`,
 - `dttm` — дата и время получения заказом этого статуса.
 
-Чтобы ваш скрипт по расчёту витрины продолжил работать, вам необходимо внести изменения в то, как формируется представление `analysis.Orders`: вернуть в него поле `status`. Значение в этом поле должно соответствовать последнему по времени статусу из таблицы `production.OrderStatusLog`.
+>Чтобы ваш скрипт по расчёту витрины продолжил работать, вам необходимо внести изменения в то, как формируется представление `analysis.Orders`: вернуть в него поле `status`. Значение в этом поле должно соответствовать последнему по времени статусу из таблицы `production.OrderStatusLog`.
 ```jsx
+--Удаление старой витрины 
+DROP VIEW analysis.orders;
+
+--Обновление витрины
 CREATE OR REPLACE VIEW analysis.orders AS
-SELECT ord.order_id, order_ts, user_id, payment, new_status FROM production.orders ord
-INNER JOIN (
-SELECT DISTINCT order_id, first_value(status_id) OVER (PARTITION BY order_id ORDER BY dttm DESC) AS new_status
-FROM production.orderstatuslog o)
-AS query_in  ON query_in.order_id = ord.order_id
+SELECT ord.order_id, 
+	   order_ts, 
+	   user_id, 
+	   payment, 
+	   new_status 
+FROM production.orders ord 
+	INNER JOIN (
+		SELECT DISTINCT order_id, 
+			 first_value(status_id) OVER (PARTITION BY order_id ORDER BY dttm DESC) AS new_status
+		FROM production.orderstatuslog o) AS query_in ON query_in.order_id = ord.order_id;
 ```

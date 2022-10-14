@@ -148,7 +148,7 @@ all_users as (
 	)
 INSERT INTO tmp_rfm_recency
 SELECT a.user_id,  
-	   ntile(5) OVER (ORDER BY coalesce(last_time, '2010-01-01 00:00:00.000' ) ASC) AS receancy 
+	ntile(5) OVER (ORDER BY coalesce(last_time, '2010-01-01 00:00:00.000' ) ASC) AS receancy 
 FROM all_users a
 	LEFT JOIN closed c ON c.user_id = a.user_id 
 GROUP BY a.user_id, c.last_time;
@@ -159,7 +159,7 @@ GROUP BY a.user_id, c.last_time;
 ```jsx
 WITH closed AS (
 	SELECT user_id, 
-		   COUNT(*) AS qty
+	       COUNT(*) AS qty
 	FROM analysis.orders o
 	WHERE status = 4
 	GROUP BY user_id
@@ -170,9 +170,9 @@ all_users AS (
 	)	
 INSERT INTO analysis.tmp_rfm_frequency
 SELECT a.user_id, 
-	   ntile(5) OVER (ORDER BY coalesce(qty, 0) ASC) AS frequency
+	ntile(5) OVER (ORDER BY coalesce(qty, 0) ASC) AS frequency
 FROM all_users a
-	 LEFT JOIN closed c ON c.user_id = a.user_id 
+	LEFT JOIN closed c ON c.user_id = a.user_id 
 GROUP BY a.user_id, qty;
 ```
 
@@ -181,7 +181,7 @@ GROUP BY a.user_id, qty;
 ```jsx
 WITH closed AS ( 
 	SELECT user_id, 
-		   SUM(payment) as total_payment
+	       SUM(payment) as total_payment
 	FROM analysis.orders o
 	WHERE status = 4
 	GROUP BY user_id
@@ -191,9 +191,9 @@ all_users as (
 	)
 INSERT INTO analysis.tmp_rfm_monetary_value
 SELECT a.user_id,  
-	   ntile(5) OVER (ORDER BY coalesce(total_payment, 0 ) ASC) AS moneytary_value
+	ntile(5) OVER (ORDER BY coalesce(total_payment, 0 ) ASC) AS moneytary_value
 FROM all_users a
-	 LEFT JOIN closed c ON c.user_id = a.user_id 
+	LEFT JOIN closed c ON c.user_id = a.user_id 
 GROUP BY a.user_id, c.total_payment;
 ```
 

@@ -1,5 +1,7 @@
 ## Пересмотр модели данных
 
+Учебный проект со второго спринта курса Яндекс Практикум "Инженер данных".
+
 В данном репозитории находятся следующие файлы:
 - [Model_before.png](https://github.com/IgorGoltsov/portfolio/blob/main/Migration/Model_before.png) - Изображение изначальной модели данных 
 - [Model_after.jpg](https://github.com/IgorGoltsov/portfolio/blob/main/Migration/Model_after.png) - Новая модель данных

@@ -4,5 +4,5 @@
 
 | Название | Описание проекта | Используемые технологии |
 | --- | --- | --- |
-| [Data_model_DE](https://github.com/IgorGoltsov/portfolio/tree/main/Data_model) | Данный проект направлен на выявление требований к модели данных, понимании ограничений в таблицах, создании новых представлений, а так же создании витрины с расчётом необходимых показателей для RFM анализа  | SQL |
-| [Migration_DE](https://github.com/IgorGoltsov/portfolio/tree/main/Migration) | В данном проекте написан SQL скрипт для миграции с одной модели данных на другую  | SQL |
+| [Data_model_DE](https://github.com/IgorGoltsov/portfolio/tree/main/Data_model) | Данный проект направлен на выявление требований к модели данных, понимании ограничений в таблицах, создании новых представлений, а так же создании витрины с расчётом необходимых показателей для RFM анализа  | SQL, PostgreSQL |
+| [Migration_DE](https://github.com/IgorGoltsov/portfolio/tree/main/Migration) | В данном проекте написан SQL скрипт для миграции с одной модели данных на другую  | SQL, PostgreSQL |

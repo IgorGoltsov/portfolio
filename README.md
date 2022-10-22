@@ -5,4 +5,4 @@
 | Название | Описание проекта | Используемые технологии |
 | --- | --- | --- |
 | [Data_model_DE](https://github.com/IgorGoltsov/portfolio/tree/main/Data_model) | Построение витрины данных для аналитики аудитории интернет-магазина(RFM анализ) Выявление требований, оценка качества данных, работа с ограничениями и представлениями.    | SQL, PostgreSQL |
-| [Migration_DE](https://github.com/IgorGoltsov/portfolio/tree/main/Migration) | Изменение модели данных и написание скрипта миграции данных хранилища интрнет магазина.  | SQL, PostgreSQL |
+| [Migration_DE](https://github.com/IgorGoltsov/portfolio/tree/main/Migration) | Изменение модели данных и написание скрипта миграции данных хранилища интернет магазина.  | SQL, PostgreSQL |

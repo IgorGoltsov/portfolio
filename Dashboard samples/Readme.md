@@ -1,9 +1,20 @@
-## Примеры визуализации дашбордов 
+## Примеры визуализации дашбордов Power BI
 ### Дашборд по распределению товарных остатков
 
 Данный дашборд создан для отображения актуальных остатков в себестоимости и объеме, в зависимости от выбранной меры, в различных разрезах. Приведены образцы нескольких вкладок, значения заменены на рандомные числа. 
 
-![Sample 1](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/stock%20sample%201.png)
+![Stock Sample 1](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/stock%20sample%201.png)
+
 Информация по остаткам и продажам по признаку пополнения, распределение по категории товаров АВС и по регионам. Данные за последнюю неделю.
-![Sample 2](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/%20stock%20sample%202.png)
+
+![Stock Sample 2](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/%20stock%20sample%202.png)
+
 Распределение не пополняемого остатка в значениях и долях по товарным группам и регионам. Так же присутствуют диаграммы по распределению в зависимости от направления и признаку акционной цены и наличию на витрине. Данные за последнюю неделю.
+
+### Дашборд обеспечения достаточного количества товаров под промо
+
+Данный дашборд показывает процент обеспечения в соответствии с необходимым количеством на текущей неделе в различных разрезах на уровне наименований коллекций, поставщиков, товарных групп и регионав, а так же значения в динамике за 4 недели. 
+
+![Promo Sample]([https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/%20stock%20sample%202.png](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/Promo%20Sample.png)
+
+

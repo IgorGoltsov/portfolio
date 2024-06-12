@@ -7,3 +7,4 @@
 | [Data_model_DE](https://github.com/IgorGoltsov/portfolio/tree/main/Data_model) | Построение витрины данных для аналитики аудитории интернет-магазина(RFM анализ) Выявление требований, оценка качества данных, работа с ограничениями и представлениями.    | SQL, PostgreSQL |
 | [Migration_DE](https://github.com/IgorGoltsov/portfolio/tree/main/Migration) | Изменение модели данных и написание скрипта миграции данных хранилища интернет магазина.  | SQL, PostgreSQL |
 |[ETL_DE](https://github.com/IgorGoltsov/portfolio/tree/main/ETL) | Адаптация ETL с учётом изменения структуры таблиц источника, составление новой витрины для еженедельного анализа retention по продукту, обеспечение в ETL условия идемпотентности. | Airflow, Python, SQL, PostgreSQL | 
+|Dashboards Samples](https://github.com/IgorGoltsov/portfolio/tree/main/Dashboard%20samples)| Примеры визуализации дашбордов в Power BI | Power BI |

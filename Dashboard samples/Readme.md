@@ -5,7 +5,7 @@
 
 ![Stock Sample 1](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/stock%20sample%201.png)
 
-Информация по остаткам и продажам по признаку пополнения, распределение по категории товаров АВС и по регионам. 
+Информация по остаткам и продажам по признаку пополнения, распределение по категории приоритетов товаров АВС и по регионам. 
 
 ![Stock Sample 2](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/%20stock%20sample%202.png)
 

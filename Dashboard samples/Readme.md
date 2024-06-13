@@ -15,7 +15,7 @@
 
 Данный дашборд показывает процент обеспечения в соответствии с необходимым количеством на текущей неделе в различных разрезах, а так же значения в динамике за 4 недели. 
 
-![Stock Sample 2](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/Promo%20Sample.png)
+![Promo Sample 1](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/Promo%20Sample.png)
 
 Информация на уровне наименований коллекций, поставщиков, регионов, с выделенным признаком участия в ТВ акции и в динамике за 4 недели. 
 

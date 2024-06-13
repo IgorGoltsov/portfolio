@@ -7,7 +7,7 @@
 
 Информация по остаткам и продажам по признаку пополнения, распределение по категории приоритетов товаров АВС и по регионам. 
 
-![Stock Sample 2](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/%20stock%20sample%202.png)
+![Stock Sample 2](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/stock%20sample%202.png)
 
 Распределение не пополняемого остатка в значениях и долях по товарным группам и регионам. Так же присутствуют диаграммы по распределению в зависимости от направления и признаку акционной цены и наличию на витрине. 
 
@@ -18,6 +18,8 @@
 ![Promo Sample 1](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/Promo%20Sample.png)
 
 Информация на уровне наименований коллекций, поставщиков, регионов, с выделенным признаком участия в ТВ акции и в динамике за 4 недели. 
+
+![Promo Sample 2](https://github.com/IgorGoltsov/portfolio/blob/main/Dashboard%20samples/Promo%20Sample%202.png)
 
 
 

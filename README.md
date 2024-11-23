@@ -9,7 +9,7 @@
 
 | Название | Описание проекта | Используемые технологии |
 | --- | --- | --- |
-|[SM_KPI_dashboard](https://github.com/IgorGoltsov/portfolio/tree/main/KPI%20dashboard)|Переверстка дашборда с историческими данными c фокусом на размещение KPI карточек. |Tableu|
+|[KPI_dashboard_SM](https://github.com/IgorGoltsov/portfolio/tree/main/KPI%20dashboard)|Переверстка дашборда с историческими данными c фокусом на размещение KPI карточек. |Tableu|
 | [AB_test_PA](https://github.com/IgorGoltsov/portfolio/tree/main/AB%20test)|Подотовка, проведение и анализ AB теста. |SQL, Tableu|
 | [Growth_Points_PA](https://github.com/IgorGoltsov/portfolio/tree/main/Growth%20points)|Поиск точек роста с помощью User Journey и RFM, ABC-XYZ сегментации. |SQL, Tableu|
 | [Unit_economics_PA](https://github.com/IgorGoltsov/portfolio/tree/main/Unit%20economics)|Анализ окупаемости продукта с помощью метрик юнит экономики. |SQL, Tableu|

@@ -8,8 +8,9 @@
 Так же примеры дашбордов Tableu можно посмотреть в профиле по [ссылке](https://public.tableau.com/app/profile/igor.goltsov/vizzes). 
 
 | Название | Описание проекта | Используемые технологии |
-| --- | --- | --- |
+| --- |
 |Продуктовая аналитика. Яндекс практикум|
+| --- | --- | --- |
 |[KPI_dashboard_SM](https://github.com/IgorGoltsov/portfolio/tree/main/KPI%20dashboard)|Переверстка дашборда с историческими данными по выручке и DAU, c фокусом на размещение KPI карточек. |Tableu|
 | [AB_test_PA](https://github.com/IgorGoltsov/portfolio/tree/main/AB%20test)|Подотовка, проведение и анализ AB теста. |SQL, Tableu|
 | [Growth_Points_PA](https://github.com/IgorGoltsov/portfolio/tree/main/Growth%20points)|Поиск точек роста с помощью User Journey и RFM, ABC-XYZ сегментации. |SQL, Tableu|

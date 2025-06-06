@@ -36,6 +36,7 @@
 | [Migration_DE](https://github.com/IgorGoltsov/portfolio/tree/main/Migration) | Изменение модели данных и написание скрипта миграции данных хранилища интернет магазина.  | SQL, PostgreSQL |
 
 Сертификаты:
+
 2025
 
 [Инди-курс программирования на Python, Stepik](https://stepik.org/cert/2715673)

@@ -35,3 +35,18 @@
 | [Data_model_DE](https://github.com/IgorGoltsov/portfolio/tree/main/Data_model) | Построение витрины данных для аналитики аудитории интернет-магазина(RFM анализ) Выявление требований, оценка качества данных, работа с ограничениями и представлениями.    | SQL, PostgreSQL |
 | [Migration_DE](https://github.com/IgorGoltsov/portfolio/tree/main/Migration) | Изменение модели данных и написание скрипта миграции данных хранилища интернет магазина.  | SQL, PostgreSQL |
 
+Сертификаты:
+2025
+[Инди-курс программирования на Python, Stepik](https://stepik.org/cert/2715673)
+2024
+[Продуктовая аналитика: специализация, Яндекс Практикум](https://github.com/IgorGoltsov/portfolio/blob/main/%D0%A3%D0%B4%D0%BE%D1%81%D1%82%D0%BE%D0%B2%D0%B5%D1%80%D0%B5%D0%BD%D0%B8%D0%B5_RU_%D0%93%D0%BE%D0%BB%D1%8C%D1%86%D0%BE%D0%B2_2024-9766-011.pdf)
+[Симулятор SQL, karpov.courses](https://lab.karpov.courses/certificate/085e5c50-28ef-4884-aaf2-e0b16bc4c4e7/)
+2023
+[Python для тех, у кого лапки](https://stepik.org/cert/1948676)
+2022
+[Crash course on Python, Coursera](https://www.coursera.org/account/accomplishments/verify/G8S92ZD4UMAC)
+[Pandas, Kaggle](https://www.kaggle.com/learn/certification/igorgoltsov/pandas)
+[Анализ и обработка данных в Power BI, Coursera](https://www.coursera.org/account/accomplishments/verify/ZJKEQW6ZJ7NZ)
+[Интерактивный тренажёр SQL, Stepik](https://stepik.org/cert/1692951)
+[Основы статистики, stepik](https://stepik.org/cert/1592555)
+
